@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Application - EasyGov Kenya</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="../index.html" class="logo"><span class="logo-text">EasyGov<span class="logo-accent">.co.ke</span></span></a>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-header">
+        <div class="container">
+            <h1>Passport Application Guide</h1>
+            <p>Complete guide to applying for a Kenyan passport</p>
+        </div>
+    </div>
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2>Overview</h2>
+                <p>Apply for a Kenyan passport online through the eCitizen portal. The process is straightforward and can be completed from anywhere.</p>
+                <div class="info-box">
+                    <h4>Processing Time & Fees</h4>
+                    <ul>
+                        <li><strong>Ordinary Passport (34 pages):</strong> Ksh 4,550 - 7-10 working days</li>
+                        <li><strong>Ordinary Passport (50 pages):</strong> Ksh 6,050 - 7-10 working days</li>
+                        <li><strong>Ordinary Passport (66 pages):</strong> Ksh 7,550 - 7-10 working days</li>
+                        <li><strong>Express Service:</strong> Additional Ksh 2,500 - 2 working days</li>
+                    </ul>
+                </div>
+                <h2>Step-by-Step Application Process</h2>
+                <ol class="steps-list">
+                    <li>
+                        <strong>Register on eCitizen</strong>
+                        <p>Visit ecitizen.go.ke and create an account using your ID number and phone number.</p>
+                    </li>
+                    <li>
+                        <strong>Fill Application Form</strong>
+                        <p>Login and select Immigration Services, then fill the passport application form with accurate information.</p>
+                    </li>
+                    <li>
+                        <strong>Upload Documents</strong>
+                        <p>Upload scanned copies of your ID, birth certificate, and a recent passport photo.</p>
+                    </li>
+                    <li>
+                        <strong>Make Payment</strong>
+                        <p>Pay the application fee via M-Pesa, card, or bank transfer.</p>
+                    </li>
+                    <li>
+                        <strong>Book Appointment</strong>
+                        <p>Schedule an appointment at your preferred Huduma Centre for biometric capture.</p>
+                    </li>
+                    <li>
+                        <strong>Visit Huduma Centre</strong>
+                        <p>Attend your appointment with original documents for verification and biometric capture.</p>
+                    </li>
+                    <li>
+                        <strong>Track Application</strong>
+                        <p>Monitor your application status on eCitizen portal.</p>
+                    </li>
+                    <li>
+                        <strong>Collect Passport</strong>
+                        <p>Receive SMS notification and collect your passport from the designated center.</p>
+                    </li>
+                </ol>
+                <h2>Required Documents</h2>
+                <ul>
+                    <li>Original National ID card</li>
+                    <li>Birth certificate (original)</li>
+                    <li>Recent passport-size photo (white background)</li>
+                    <li>Previous passport (for renewal)</li>
+                    <li>Parents' IDs (for first-time applicants under 18)</li>
+                </ul>
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">How long does it take to get a passport?</div>
+                        <div class="faq-answer">Standard processing takes 7-10 working days. Express service takes 2 working days with additional fee.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Can I apply for a passport without an ID?</div>
+                        <div class="faq-answer">No, a valid National ID is mandatory for passport application. Apply for your ID first through the same eCitizen portal.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">What if I lost my previous passport?</div>
+                        <div class="faq-answer">Report the loss at the nearest police station, obtain a police abstract, and indicate loss during application.</div>
+                    </div>
+                </div>
+                <a href="../index.html" class="btn btn-primary" style="margin-top: 32px;">Back to Home</a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom"><p>&copy; 2025 EasyGov.co.ke</p></div>
+        </div>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+    <!-- Popup Modal -->
+<div id="assistancePopup" class="popup-overlay" style="display:none;">
+  <div class="popup-content">
+    <button class="popup-close" id="popupCloseBtn">&times;</button>
+    <h3>Need Help with Your Passport?</h3>
+    <p>If you need assistance getting your passport, feel free to reach out to us on WhatsApp:</p>
+    <a href="https://wa.me/254795684774" target="_blank" class="whatsapp-link">Chat on WhatsApp</a>
+  </div>
+</div>
+
+<script>
+  (function() {
+    let scrollTimer = 0;
+    let scrollTimeout;
+    const popup = document.getElementById('assistancePopup');
+    const closeBtn = document.getElementById('popupCloseBtn');
+
+    function showPopup() {
+      popup.style.display = 'flex';
+    }
+
+    function closePopup() {
+      popup.style.display = 'none';
+      window.removeEventListener('scroll', onScroll);
+    }
+
+    function onScroll() {
+      scrollTimer += 1000;
+      if (scrollTimer >= 10000) { // 10 seconds
+        showPopup();
+        window.removeEventListener('scroll', onScroll);
+      } else {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          scrollTimer = 0; // Reset if user stops scrolling
+        }, 1500);
+      }
+    }
+
+    // Listen for scroll events
+    window.addEventListener('scroll', onScroll);
+
+    // Close popup on button click
+    closeBtn.addEventListener('click', closePopup);
+
+    // Close popup if user clicks outside the popup-content
+    popup.addEventListener('click', function(e) {
+      if (e.target === popup) closePopup();
+    });
+  })();
+</script>
+
+<style>
+  /* Popup overlay */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  /* Popup box */
+  .popup-content {
+    background: white;
+    padding: 24px 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+  }
+
+  .popup-close:hover {
+    color: #222;
+  }
+
+  .popup-content h3 {
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+    color: #222;
+  }
+
+  .popup-content p {
+    margin-bottom: 18px;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .whatsapp-link {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .whatsapp-link:hover {
+    background-color: #1ebe57;
+  }
+</style>
+
+</body>
+</html>
